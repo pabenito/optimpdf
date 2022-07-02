@@ -13,6 +13,7 @@ get_dir(){
 get_all_pdfs(){
   local dir=$1
   pdf_paths=""
+  echo "Searching PDFs..."
   for path in `find $dir -print`
   do 
     local ext="${path##*.}"
