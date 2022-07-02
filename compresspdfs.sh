@@ -8,12 +8,17 @@ get_dir(){
   then 
     dir="."
   fi
+  if [ ! -d $dir ]
+  then 
+    printf "Error: The specified directory '$dir' does not exist\n" >&2
+    exit 1
+  fi
 }
 
 get_all_pdfs(){
   local dir=$1
   pdf_paths=""
-  echo "Searching PDFs..."
+  printf "Searching PDFs...\n"
   for path in `find $dir -print`
   do 
     local ext="${path##*.}"
