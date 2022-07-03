@@ -2,6 +2,14 @@
 
 # Sub functions
 
+compress_pdf()
+{
+  local path_input=$1
+  local path_output=$1.compressed.pdf
+  gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dEmbedAllFonts=true -dSubsetFonts=true -dColorImageDownsampleType=/Bicubic -dColorImageResolution=144 -dGrayImageDownsampleType=/Bicubic -dGrayImageResolution=144 -dMonoImageDownsampleType=/Bicubic -dMonoImageResolution=144 -sOutputFile=$path_output $path_input 
+  mv $path_output $path_input
+}
+
 count_lines(){
   return `printf "$1" | wc --lines`
 }
@@ -46,14 +54,15 @@ get_all_pdfs(){
 
 compress_pdfs(){
   local pdf_paths=$1
-  local num_of_pdfs=$(count_lines $pdf_paths)
+  count_lines $pdf_paths
+  local num_of_pdfs=$?
   local pdf_paths=`printf $pdf_paths`
 
   local i=1
   for path in $pdf_paths
   do 
     printf "[$i/$num_of_pdfs] $path\n"
-    ps2pdf "$path" "$path" 
+    compress_pdf $path
     local i=$((i+1))
   done
 }
