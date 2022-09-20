@@ -14,6 +14,15 @@ count_lines(){
   return `printf "$1" | wc --lines`
 }
 
+is_pdf(){
+  local path=$1
+  local ext="${path##*.}"
+  if ! [ -z $path ] && [ -f $path ] && [ $ext = "pdf" ]
+  then return 0
+  else return 1
+  fi
+}
+
 get_dir(){
   dir=$1
   
@@ -36,8 +45,7 @@ get_all_pdfs(){
 
   for path in `find $dir -print`
   do 
-    local ext="${path##*.}"
-    if [ "$ext" = "pdf" ]
+    if is_pdf $path
     then 
       pdf_paths+="$path\n"  
     fi
