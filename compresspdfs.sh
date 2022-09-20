@@ -80,8 +80,16 @@ compress_pdfs(){
 IFS_original=$IFS
 IFS=$'\n'
 
-get_dir $1
-get_all_pdfs $dir
-compress_pdfs $pdf_paths
+if is_pdf $1 
+then 
+  file=$1
+  printf "$file compressing...\n"
+  compress_pdf $file
+  printf "$file successfully compressed\n"
+else 
+  get_dir $1
+  get_all_pdfs $dir
+  compress_pdfs $pdf_paths
+fi
 
 IFS=$IFS_original
