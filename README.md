@@ -26,7 +26,7 @@ Keep original PDFs.
 
 `optimpdf -k [INPUT]*`
 
-### Recursive
+#### Recursive
 
 Optimeze PDFs recursively in the specified directories.
 
