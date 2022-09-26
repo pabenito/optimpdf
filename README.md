@@ -36,7 +36,7 @@ Optimeze PDFs recursively in the specified directories.
 
 #### Individually
 
-`optimpdf pdf1.png pdf2.jpg`
+`optimpdf pdf1.pdf pdf2.pdf`
 
 #### Directory
 
@@ -48,12 +48,12 @@ Self directory do not need to be specified when is alone.
 
 #### Patterns 
 
-`optimpdf Dowloads/**.png`
+`optimpdf Dowloads/foo_**.pdf`
 
 #### Mixed
 
-`optimpdf . Dowloads/pdf1.png dir1 pdf2.jpg`
+`optimpdf . Dowloads/pdf1.pdf dir1 pdf2.pdf`
 
-`optimpdf -r Documents/dir1 pdf1.png dir2`
+`optimpdf -r Documents/dir1 pdf1.pdf dir2`
 
 **WarningPDF The last one search recursively in 'Documents/dir1' and in 'dir2' also.  
