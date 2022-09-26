@@ -56,4 +56,4 @@ Self directory do not need to be specified when is alone.
 
 `optimpdf -r Documents/dir1 pdf1.pdf dir2`
 
-**WarningPDF The last one search recursively in 'Documents/dir1' and in 'dir2' also.  
+**Warning**: The last one search recursively in 'Documents/dir1' and in 'dir2' also.  
