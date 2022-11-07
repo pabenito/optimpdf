@@ -16,7 +16,7 @@ optimize_pdf(){
   local path_original="${path_without_ext}_original.pdf"
 
   cp $path $path_original 
-  gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dEmbedAllFonts=true -dSubsetFonts=true -dColorpdfDownsampleType=/Bicubic -dColorpdfResolution=144 -dGraypdfDownsampleType=/Bicubic -dGraypdfResolution=144 -dMonopdfDownsampleType=/Bicubic -dMonopdfResolution=144 -sOutputFile=$path $path_original 
+  gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dEmbedAllFonts=true -dSubsetFonts=true -dColorpdfDownsampleType=/Bicubic -dColorpdfResolution=144 -dGraypdfDownsampleType=/Bicubic -dGraypdfResolution=144 -dMonopdfDownsampleType=/Bicubic -dMonopdfResolution=144 -sOutputFile=$path $path_original 
 
   if [ $keep_original = "false" ]
   then 
